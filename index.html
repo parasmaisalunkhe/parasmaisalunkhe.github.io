@@ -15,7 +15,7 @@
         <div class="links">
             <a href="https://www.linkedin.com/in/parasmai-salunkhe-b0400530b/" target="_blank">LinkedIn</a>
             <a href="https://github.com/parasmaisalunkhe" target="_blank">GitHub</a>
-            <a href="https://www.credly.com/users/parasmai-salunkhe" target="_blank">Credly Badges</a>
+            <a href="https://www.credly.com/users/parasmai-salunkhe" target="_blank">Credly</a>
             <a href="mailto:psalun1@wgu.edu">Email</a>
         </div>
     </header>
@@ -80,15 +80,9 @@
         </div>
     </section>
 
-    <section id="certs">
-        <h2>Certifications</h2>
-        <ul>
-            <li>AWS Machine Learning Specialty</li>
-            <li>Google Professional Machine Learning Engineer</li>
-            <li>SAS Certified Specialist: Machine Learning Using SAS Viya</li>
-            <li>ITIL Foundation Certificate</li>
-            <li>Linux Essentials Certificate</li>
-        </ul>
+    <section id="credly">
+        <h2>My Certifications</h2>
+        <div id="credly-badges" class="badge-grid"></div>
     </section>
 
     <section id="education">
@@ -103,6 +97,44 @@
     <footer>
         <p>© 2026 Parasmai Salunkhe</p>
     </footer>
+
+    <!-- Auto‑pull Credly badges -->
+    <script>
+    async function loadCredlyBadges() {
+        const userId = "parasmai-salunkhe";
+        const url = `https://www.credly.com/users/${userId}/badges.json`;
+
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+
+            const container = document.getElementById("credly-badges");
+            container.innerHTML = "";
+
+            data.data.forEach(badge => {
+                const img = badge.badge_template.image_url;
+                const name = badge.badge_template.name;
+                const link = `https://www.credly.com/badges/${badge.id}`;
+
+                const card = `
+                    <a class="badge" href="${link}" target="_blank">
+                        <img src="${img}" alt="${name}">
+                        <h4>${name}</h4>
+                    </a>
+                `;
+
+                container.innerHTML += card;
+            });
+
+        } catch (error) {
+            console.error("Error loading Credly badges:", error);
+            document.getElementById("credly-badges").innerHTML =
+                "<p>Unable to load badges right now.</p>";
+        }
+    }
+
+    loadCredlyBadges();
+    </script>
 
 </body>
 </html>
