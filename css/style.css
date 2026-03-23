@@ -1,40 +1,75 @@
-/* Reset some default spacing */
-body, h1, p {
-    margin: 0;
-    padding: 0;
-}
-
-/* Page background and font */
 body {
+    margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     background: #f5f7fa;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    color: #222;
+    line-height: 1.6;
 }
 
-/* Main heading */
-h1 {
-    font-size: 3rem;
-    color: #2c3e50;
-    margin-bottom: 10px;
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: #0a2540;
+    color: white;
 }
 
-/* Paragraph text */
-p {
-    font-size: 1.2rem;
-    color: #555;
+header h1 {
+    margin: 0;
+    font-size: 2.8rem;
 }
 
-/* Optional: subtle fade‑in animation */
-body {
-    animation: fadeIn 1s ease-in-out;
+.subtitle {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    opacity: 0.9;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.links a {
+    margin: 0 10px;
+    color: #4cc9f0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    border-left: 5px solid #0a2540;
+    padding-left: 10px;
+    color: #0a2540;
+}
+
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.skill-grid span {
+    background: #e3e9f0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.project {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #0a2540;
+    color: white;
+    margin-top: 40px;
 }
